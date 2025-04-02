@@ -6,15 +6,26 @@
     "Nevermore",
     "Replica"
   ],
+  "homepage": "https://github.com/KreatorKols/Replica#readme",
+  "bugs": {
+    "url": "https://github.com/KreatorKols/Replica/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KreatorKols/Replica.git"
   },
-  "main": "index.js",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "src/Shared/ReplicaClient.lua",
   "files": [
     "src"
   ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "publishConfig": {
     "access": "public"
   }
 }
+
