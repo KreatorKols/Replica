@@ -6,24 +6,14 @@
     "Nevermore",
     "Replica"
   ],
-  "homepage": "https://github.com/KreatorKols/Replica#readme",
-  "bugs": {
-    "url": "https://github.com/KreatorKols/Replica/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KreatorKols/Replica.git"
   },
-  "license": "MIT",
-  "author": "papabos",
-  "type": "commonjs",
   "main": "index.js",
   "files": [
     "src"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "publishConfig": {
     "access": "public"
   }
