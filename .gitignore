@@ -1,0 +1,18 @@
+# This file specifies ignored files from Git
+
+*.sublime-workspace
+*.rbxl.lock
+wally.lock
+node_modules
+dist
+Bvl.rbxl
+roblox.toml
+roblox.yml
+aftman.toml
+selene.toml
+sourcemap.json
+package-lock.json
+.DS_Store
+.vscode
+.editorconfig
+.luaurc
