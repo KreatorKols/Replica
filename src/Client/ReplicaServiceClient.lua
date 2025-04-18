@@ -1,12 +1,13 @@
 --[=[
-	Wraps Mad's ReplicaClient so that it's initialized and ready for anybody to use
+	Wraps Mad's ReplicaClient to ensure single intialization
 	@class ReplicaServiceClient
 ]=]
 
 local require = require(script.Parent.loader).load(script)
 
--- local Maid = require("Maid")
+local Maid = require("Maid")
 local ReplicaClient = require("ReplicaClient")
+local Observable = require("Observable")
 
 local ReplicaServiceClient = {}
 ReplicaServiceClient.ServiceName = "ReplicaServiceClient"
@@ -17,14 +18,20 @@ function ReplicaServiceClient:Init(serviceBag)
 	-- self._maid = Maid.new()
 
 	-- External
-	self.Replica = ReplicaClient
+	self.ReplicaClient = ReplicaClient
 	ReplicaClient.RequestData()
 end
 
--- function ReplicaServiceClient:Start() end
+function ReplicaServiceClient:ObserveReplica(token)
+	return Observable.new(function(subscriber)
+		local madConnection = self.ReplicaClient.OnNew(token, function(data)
+			subscriber:Fire(data)
+		end)
 
-function ReplicaServiceClient:Destroy()
-	-- self._maid:DoCleaning()
+		return function ()
+			madConnection:Disconnect()
+		end
+	end)
 end
 
 return ReplicaServiceClient
